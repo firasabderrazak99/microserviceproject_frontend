@@ -14,7 +14,8 @@ import { FormsModule } from '@angular/forms';
 export class DonneeMeteoComponent implements OnInit {
 
   donnees: DonneeMeteo[] = [];
-  currentDonnee: DonneeMeteo = { parcelleId: 0 };
+  currentDonnee: DonneeMeteo = { parcelleId: 0 ,temperature: 0,
+  humiditeAir: 0, pluviometrie: 0, date: ''};
 
   constructor(private service: DonneeMeteoService) {}
 
@@ -39,6 +40,7 @@ export class DonneeMeteoComponent implements OnInit {
   }
 
   resetForm(): void {
-    this.currentDonnee = { parcelleId: 0 };
+    this.currentDonnee = { parcelleId: 0,temperature: 0,
+  humiditeAir: 0,  pluviometrie: 0, date :'' };
   }
 }
