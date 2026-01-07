@@ -1,0 +1,9 @@
+<h2>Dashboard Supervision</h2>
+<div style="display: flex; gap: 20px;">
+  <div *ngFor="let card of cards" 
+       [style.background-color]="card.color" 
+       style="padding: 20px; border-radius: 10px; color: white; width: 150px; text-align: center;">
+    <h3>{{ card.label }}</h3>
+    <p>{{ card.count }}</p>
+  </div>
+</div>
