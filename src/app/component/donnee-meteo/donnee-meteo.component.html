@@ -1,0 +1,28 @@
+<h2>Données Météo</h2>
+
+<form (ngSubmit)="save()">
+  <input type="number" placeholder="Parcelle ID" [(ngModel)]="currentDonnee.parcelleId" name="parcelleId" required>
+  <input type="number" placeholder="Température" [(ngModel)]="currentDonnee.temperature" name="temperature">
+  <input type="number" placeholder="Humidité Air" [(ngModel)]="currentDonnee.humiditeAir" name="humiditeAir">
+  <input type="number" placeholder="Pluviométrie" [(ngModel)]="currentDonnee.pluviometrie" name="pluviometrie">
+  <input type="datetime-local" placeholder="Date" [(ngModel)]="currentDonnee.date" name="date">
+  <button type="submit">Créer</button>
+  <button type="button" (click)="resetForm()">Annuler</button>
+</form>
+
+<table border="1">
+  <tr>
+    <th>ID</th><th>Parcelle</th><th>Température</th><th>Humidité</th><th>Pluviométrie</th><th>Date</th><th>Actions</th>
+  </tr>
+  <tr *ngFor="let d of donnees">
+    <td>{{d.id}}</td>
+    <td>{{d.parcelleId}}</td>
+    <td>{{d.temperature}}</td>
+    <td>{{d.humiditeAir}}</td>
+    <td>{{d.pluviometrie}}</td>
+    <td>{{d.date}}</td>
+    <td>
+      <button (click)="delete(d.id)">Supprimer</button>
+    </td>
+  </tr>
+</table>

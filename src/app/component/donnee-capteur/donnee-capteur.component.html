@@ -1,0 +1,66 @@
+<h2>Données Capteur</h2>
+
+<button class="add-btn" (click)="openPopup()">➕ Ajouter Donnée</button>
+
+<!-- POPUP -->
+<div class="overlay" *ngIf="isPopupOpen">
+  <div class="popup">
+    <h3>Ajouter Donnée Capteur</h3>
+
+    <form (ngSubmit)="save()">
+      <input type="number"
+             placeholder="Parcelle ID"
+             [(ngModel)]="currentDonnee.parcelleId"
+             name="parcelleId"
+             required>
+
+      <input type="text"
+             placeholder="Type"
+             [(ngModel)]="currentDonnee.type"
+             name="type"
+             required>
+
+      <input type="number"
+             placeholder="Valeur"
+             [(ngModel)]="currentDonnee.valeur"
+             name="valeur"
+             required>
+
+      <input type="datetime-local"
+             [(ngModel)]="currentDonnee.date"
+             name="date"
+             required>
+
+      <div class="actions">
+        <button type="submit">Enregistrer</button>
+        <button type="button" class="cancel" (click)="closePopup()">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Parcelle</th>
+      <th>Type</th>
+      <th>Valeur</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let d of donnees">
+      <td>{{ d.id }}</td>
+      <td>{{ d.parcelleId }}</td>
+      <td>{{ d.type }}</td>
+      <td>{{ d.valeur }}</td>
+      <td>{{ d.date }}</td>
+      <td>
+        <button class="delete" (click)="delete(d.id)">🗑 Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

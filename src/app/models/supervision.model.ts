@@ -1,19 +1,19 @@
 export interface DonneeCapteur {
-  id: number;
+  id?: number;
   parcelleId: number;
   type: string;
   valeur: number;
-  date: string;
+  date?: string;
 }
 
 
 export interface DonneeMeteo {
-  id: number;
+  id?: number;
   parcelleId: number;
-  temperature: number;
-  humiditeAir: number;
-  pluviometrie: number;
-  date: string; // LocalDateTime → string
+  temperature?: number;
+  humiditeAir?: number;
+  pluviometrie?: number;
+  date?: string; // LocalDateTime → string
 }
 export interface ExploitationSupervisionDTO {
   id: number;
