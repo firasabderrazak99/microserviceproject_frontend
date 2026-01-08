@@ -1,0 +1,14 @@
+<h2>Supervision</h2>
+
+<button (click)="detect()" [disabled]="loading">
+  {{ loading ? 'Détection en cours...' : 'Detect exploitations' }}
+</button>
+
+<p class="message">{{ message }}</p>
+
+<ul class="exploitations-list">
+  <li *ngFor="let exp of exploitations">
+    <span>{{ exp.nom }} - {{ exp.localisation }}</span>
+    <span *ngIf="hasAnomaly(exp.id)" class="badge">⚠ Anomalie</span>
+  </li>
+</ul>

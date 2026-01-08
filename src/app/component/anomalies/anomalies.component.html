@@ -1,0 +1,13 @@
+<h2>🚨 Liste des Anomalies</h2>
+<div *ngIf="loading">Chargement...</div>
+
+<ul *ngIf="!loading && anomalies.length > 0">
+  <li *ngFor="let anomaly of anomalies">
+    {{ anomaly }}
+  </li>
+</ul>
+
+<div *ngIf="!loading && anomalies.length === 0">
+  Pas d'anomalies détectées.
+</div>
+

@@ -33,6 +33,7 @@ export class SupervisionService {
 
   // detection anomalies
    getAnomalies(): Observable<string[]> {
+    console.log('Calling anomalies API...');
     return this.http.get<string[]>(
       `${this.baseUrl}/anomalies`
     );
